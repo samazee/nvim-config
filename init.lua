@@ -19,10 +19,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
+vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<Cmd>w<CR>", { desc = "Save file" })
 
 require("lazy").setup({
   spec = {
@@ -57,7 +58,18 @@ require("lazy").setup({
         },
 		{
 			"42paris/42header"
-		}
+		},
+        {
+            "Diogo-ss/42-C-Formatter.nvim",
+            cmd = "CFormat42",
+            config = function()
+                local formatter = require "42-formatter"
+                formatter.setup({
+                    formatter = 'c_formatter_42',
+                    filetypes = { c = true, h = true, cpp = true, hpp = true },
+                })
+            end
+        }
     },
     checker = { enabled = true },
 })
