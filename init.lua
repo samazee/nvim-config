@@ -40,6 +40,7 @@ require("lazy").setup({
         },
         {
             'nvim-treesitter/nvim-treesitter',
+			tag = "0.10.0",
             build = ":TSUpdate",
             config = function () 
                 local configs = require("nvim-treesitter.configs")
@@ -54,6 +55,7 @@ require("lazy").setup({
         {
             "catppuccin/nvim",
             name = "catppuccin",
+			tag = "1.11.0",
             priority = 1000
         },
 		{
